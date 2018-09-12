@@ -1,0 +1,28 @@
+{
+  "name": "client-log",
+  "version": "1.0.0",
+  "description": "Simple logger designed for browser. It logs with line number.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rikuson/client-log.git"
+  },
+  "keywords": [
+    "client",
+    "browser",
+    "console",
+    "log",
+    "javascript",
+    "custom",
+    "logger"
+  ],
+  "author": "Rikson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rikuson/client-log/issues"
+  },
+  "homepage": "https://github.com/rikuson/client-log#readme"
+}
