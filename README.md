@@ -10,6 +10,11 @@ Simple logger designed for browser and node.
 
 ## Usage
 
+Use npm to install.
+```
+npm install --save log-talk
+```
+
 ```JavaScript
 const LogTalk = require('log-talk');
 const logger = new LogTalk();
@@ -52,19 +57,10 @@ const logger = new LogTalk(minLevel);
 
 So logger only displays logs which is level 3 or more.
 
-### Default log level
-
-| name    | level |
-|:--------|------:|
-| debug   |     1 |
-| info    |     2 |
-| success |     3 |
-| warn    |     4 |
-| error   |     5 |
-
 ## How to highlight
 
-To highlight, you can do this.
+To highlight, you can do this.  
+**NOTE: IE ignores color.**
 
 ```JavaScript
 const LogTalk = require('log-talk');
@@ -73,22 +69,25 @@ logger.setMethod({ name: 'foo', color: 'yellow' });
 logger.foo('This log should be yellow.');
 ```
 
-**NOTE: IE ignores color.**
-
-### Default color
-
 These are defined colors.
-
-| name    | color   |
-|:--------|:--------|
-| debug   | default |
-| info    | blue    |
-| success | green   |
-| warn    | yellow  |
-| error   | red     |
+- default
+- blue
+- green
+- yellow
+- red
 
 It's not flexible and few though.  
 I will improve it soon.
+
+## Default Methods
+
+| name    | level | color   |
+|:--------|------:|:--------|
+| debug   |     1 | default | 
+| info    |     2 | blue    | 
+| success |     3 | green   | 
+| warn    |     4 | yellow  | 
+| error   |     5 | red     | 
 
 ## How to handle error message
 
