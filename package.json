@@ -1,6 +1,6 @@
 {
   "name": "log-talk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple logger designed for browser and node. It logs with line number and color.",
   "main": "./dist/bundle.js",
   "scripts": {
