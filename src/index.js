@@ -89,7 +89,7 @@ class LogTalk {
     }
     Object.keys(this.__loggingMethods).forEach(key => {
       const method = this.__loggingMethods[key];
-      this.__loggingMethods[key] = function() {
+      this.__loggingMethods[key] = this[key] = function() {
         const args = Array.from(arguments);
         const matched = args.filter(arg => String(arg).match(reg));
         if (matched.length > 0) callback();
