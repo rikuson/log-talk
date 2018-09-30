@@ -4,8 +4,8 @@ Simple logger designed for browser. It logs with line number.
 
 ## Browser Support
 
-- IE@latest
-- Edge@latest
-- Firefox@latest
-- Chrome@latest
-- Safari@latest
+- IE@11
+- Edge
+- Firefox
+- Chrome
+- Safari
