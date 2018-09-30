@@ -1,5 +1,5 @@
 const dayjs = require("dayjs");
-class HappyLogger {
+class LogTalk {
   static get LOGGING_METHODS() {
     return [
       {
@@ -65,22 +65,22 @@ class HappyLogger {
   };
 
   constructor(level = 1, option = {}) {
-    this.__option = { ...HappyLogger.DEFAULT_LOGGING_METHOD, ...option };
+    this.__option = { ...LogTalk.DEFAULT_LOGGING_METHOD, ...option };
     this.__level = level;
     this.__loggingMethods = {};
-    HappyLogger.LOGGING_METHODS.forEach(this.setMethod.bind(this));
+    LogTalk.LOGGING_METHODS.forEach(this.setMethod.bind(this));
   }
 
   highlight(timestamp, label, color) {
     // For terminal
     if (typeof window === 'undefined') {
-      return [timestamp, HappyLogger.TERMINAL_COLOR[color] + label + HappyLogger.TERMINAL_COLOR.default];
+      return [timestamp, LogTalk.TERMINAL_COLOR[color] + label + LogTalk.TERMINAL_COLOR.default];
     }
     // For ie
     if (window.navigator.userAgent.match(/(T|t)rident/)) {
       return [timestamp, label];
     }
-    return [`${timestamp} %c${label}`, `color: ${HappyLogger.BROWSER_COLOR[color]}`];
+    return [`${timestamp} %c${label}`, `color: ${LogTalk.BROWSER_COLOR[color]}`];
   }
 
   onMatch(reg, callback) {
@@ -123,4 +123,4 @@ class HappyLogger {
   }
 };
 
-module.exports = HappyLogger;
+module.exports = LogTalk;

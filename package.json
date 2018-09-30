@@ -1,5 +1,5 @@
 {
-  "name": "client-log",
+  "name": "log-talk",
   "version": "1.0.0",
   "description": "Simple logger designed for browser and node. It logs with line number and color.",
   "main": "./dist/bundle.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rikuson/client-log.git"
+    "url": "git+https://github.com/rikuson/log-talk.git"
   },
   "keywords": [
     "client",
@@ -25,9 +25,9 @@
   "author": "Rikson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rikuson/client-log/issues"
+    "url": "https://github.com/rikuson/log-talk/issues"
   },
-  "homepage": "https://github.com/rikuson/client-log#readme",
+  "homepage": "https://github.com/rikuson/log-talk#readme",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
