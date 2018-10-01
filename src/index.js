@@ -83,6 +83,7 @@ class LogTalk {
     return [`${timestamp} %c${label}`, `color: ${LogTalk.BROWSER_COLOR[color]}`];
   }
 
+  // deprecated
   onMatch(reg, callback) {
     if (typeof callback !== "function") {
       throw new Error("Invalid callback function");
@@ -92,8 +93,8 @@ class LogTalk {
       this.__loggingMethods[key] = this[key] = function() {
         const args = Array.from(arguments);
         const matched = args.filter(arg => String(arg).match(reg));
-        if (matched.length > 0) callback();
         method.apply(this, arguments);
+        if (matched.length > 0) callback();
       };
     });
   }
@@ -115,11 +116,9 @@ class LogTalk {
         throw new Error("Invalid method name");
     }
     if (!this.__level || level < this.__level) return false;
-    this.__loggingMethods[name] = this[name] = function() {
-      const timestamp = dayjs().format(timeFormat);
-      const args = this.highlight(timestamp, name, color);
-      output.call(this, ...args, ...arguments);
-    };
+    const timestamp = dayjs().format(timeFormat);
+    const args = this.highlight(timestamp, name, color);
+    this.__loggingMethods[name] = this[name] = output.bind(console, ...args);
   }
 };
 
