@@ -1,10 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    dist: './src/index.js',
+    docs: './src/index.js',
+  },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path: __dirname,
+    filename: '[name]/bundle.js',
     library: 'LogTalk',
     libraryTarget: 'umd',
     globalObject: 'typeof self !== \'undefined\' ? self : this',

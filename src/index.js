@@ -91,8 +91,7 @@ class LogTalk {
     Object.keys(this.__loggingMethods).forEach(key => {
       const method = this.__loggingMethods[key];
       this.__loggingMethods[key] = this[key] = function() {
-        const args = Array.from(arguments);
-        const matched = args.filter(arg => String(arg).match(reg));
+        const matched = [...arguments].filter(arg => String(arg).match(reg));
         method.apply(this, arguments);
         if (matched.length > 0) callback();
       };
@@ -115,6 +114,7 @@ class LogTalk {
       case "":
         throw new Error("Invalid method name");
     }
+    if (typeof console === 'undefined') return false;
     if (!this.__level || level < this.__level) return false;
     const timestamp = dayjs().format(timeFormat);
     const args = this.highlight(timestamp, name, color);

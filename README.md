@@ -43,7 +43,11 @@ logger.onMatch(/bar/, function() {
 logger.debug('foo bar baz');
 ```
 
-<!-- Screenshot -->
+You can see this demo [here](https://rikuson.github.io/log-talk/) on your browser.
+
+### Screenshot
+
+![screenshot](./docs/screenshot.png)
 
 ## Log level
 
