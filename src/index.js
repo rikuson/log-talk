@@ -93,10 +93,10 @@ class LogTalk {
     }
     switch (name) {
       case "highlight":
-      case "onMatch":
       case "setMethod":
+        throw new Error("Method name is reserved");
       case "":
-        throw new Error("Invalid method name");
+        throw new Error("Method name is empty");
     }
     if (typeof console === 'undefined') return false;
     if (!this.__level || level < this.__level) return false;
