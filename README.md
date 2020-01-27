@@ -88,20 +88,6 @@ I will improve it soon.
 | warn    |     4 | yellow  | 
 | error   |     5 | red     | 
 
-## How to handle error message
-
-Here's good example.  
-Google Maps API throw error by using `console.error` when you use api more than limit.  
-So you can do this.
-
-```JavaScript
-var tmp = console.error;
-console.error = function() {
-  logger.error(arguments);
-  tmp.apply(this, arguments);
-}
-```
-
 ## Browser Support
 
 - IE@11
