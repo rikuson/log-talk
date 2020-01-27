@@ -67,7 +67,6 @@ class LogTalk {
   constructor(level = 1, option = {}) {
     this.__option = { ...LogTalk.DEFAULT_LOGGING_METHOD, ...option };
     this.__level = level;
-    this.__loggingMethods = {};
     LogTalk.LOGGING_METHODS.forEach(this.setMethod.bind(this));
   }
 
@@ -81,21 +80,6 @@ class LogTalk {
       return [timestamp, label];
     }
     return [`${timestamp} %c${label}`, `color: ${LogTalk.BROWSER_COLOR[color]}`];
-  }
-
-  // deprecated
-  onMatch(reg, callback) {
-    if (typeof callback !== "function") {
-      throw new Error("Invalid callback function");
-    }
-    Object.keys(this.__loggingMethods).forEach(key => {
-      const method = this.__loggingMethods[key];
-      this.__loggingMethods[key] = this[key] = function() {
-        const matched = [...arguments].filter(arg => String(arg).match(reg));
-        method.apply(this, arguments);
-        if (matched.length > 0) callback();
-      };
-    });
   }
 
   setMethod(method) {
@@ -118,7 +102,7 @@ class LogTalk {
     if (!this.__level || level < this.__level) return false;
     const timestamp = dayjs().format(timeFormat);
     const args = this.highlight(timestamp, name, color);
-    this.__loggingMethods[name] = this[name] = output.bind(console, ...args);
+    this[name] = output.bind(console, ...args);
   }
 };
 

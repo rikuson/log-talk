@@ -15,10 +15,3 @@ logger.foo('Foo');
 // You also can override default methods
 logger.setMethod({ name: 'info', color: 'red' });
 logger.info('Now the label is red');
-
-// Observe log messages
-logger.onMatch(/bar/, function() {
-  logger.debug('matched');
-});
-
-logger.debug('foo bar baz');
