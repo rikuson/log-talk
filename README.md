@@ -52,6 +52,17 @@ const minLevel = 3;
 const logger = new LogTalk(minLevel);
 ```
 
+## Label
+
+Set `label` option to customize label.  
+If you don't set label, `name` option is used as label.
+
+```JavaScript
+const LogTalk = require('log-talk');
+const logger = new LogTalk();
+logger.setMethod({ name: 'foo', label: 'Foo' });
+```
+
 ## Time format
 
 Set `timeFormat` option to customize time format.

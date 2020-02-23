@@ -8,9 +8,9 @@ logger.warn('This is warn');
 logger.error('This is error', new Error('There is something wrong'));
 
 // Define your own method
-logger.setMethod({ name: 'foo', color: 'yellow', timeFormat: '[[]YYYY-MM-DD HH:mm:ss]' });
+logger.setMethod({ name: 'foo', color: 'yellow', timeFormat: 'YYYY-MM-DD' });
 logger.foo('Foo');
 
 // Override default methods
-logger.setMethod({ name: 'info', color: 'red' });
-logger.info('Now the label is red');
+logger.setMethod({ name: 'info', label: '[INFO]', color: 'red' });
+logger.info('The label is red now');
