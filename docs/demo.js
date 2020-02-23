@@ -1,4 +1,10 @@
-const logger = new LogTalk();
+let logger;
+if (typeof window === 'undefined') {
+  const LogTalk = require("./bundle.js");
+  logger = new LogTalk();
+} else {
+  logger = new LogTalk();
+}
 
 // Default methods
 logger.debug('This is debug');
