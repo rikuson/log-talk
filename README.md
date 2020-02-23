@@ -11,6 +11,7 @@ Simple logger designed for browser and node.
 ## Usage
 
 Use npm to install.
+
 ```
 npm install --save log-talk
 ```
@@ -20,7 +21,6 @@ const LogTalk = require('log-talk');
 const logger = new LogTalk();
 
 // Default methods
-// You can use it just like `console.log`
 logger.debug('This is debug');
 logger.info('This is info', { message: 'Hello' });
 logger.success('This is success');
@@ -28,14 +28,12 @@ logger.warn('This is warn');
 logger.error('This is error', new Error('There is something wrong'));
 
 // Define your own method
-logger.setMethod({ name: 'foo', color: 'yellow' });
+logger.setMethod({ name: 'foo', color: 'yellow', timeFormat: '[[]YYYY-MM-DD HH:mm:ss]' });
 logger.foo('Foo');
 
-// You also can override default methods
+// Override default methods
 logger.setMethod({ name: 'info', color: 'red' });
 logger.info('Now the label is red');
-
-logger.debug('foo bar baz');
 ```
 
 You can see this demo [here](https://rikuson.github.io/log-talk/) on your browser.
@@ -46,7 +44,7 @@ You can see this demo [here](https://rikuson.github.io/log-talk/) on your browse
 
 ## Log level
 
-You can hide low level log by doing like this.
+You can hide low level log such as debug.
 
 ```JavaScript
 const LogTalk = require('log-talk');
@@ -54,18 +52,28 @@ const minLevel = 3;
 const logger = new LogTalk(minLevel);
 ```
 
-So logger only displays logs which is level 3 or more.
+## Time format
 
-## How to highlight
+Set `timeFormat` option to customize time format.
 
-To highlight, you can do this.  
+```JavaScript
+const LogTalk = require('log-talk');
+const logger = new LogTalk();
+logger.setMethod({ name: 'foo', timeFormat: 'YYYY-MM-DD' });
+```
+
+It depends on Day.js to generate time string.  
+Formatting rules are [here](https://day.js.org/docs/en/display/format).
+
+## Highlight
+
+Set `color` option to highlight.  
 **NOTE: IE ignores color.**
 
 ```JavaScript
 const LogTalk = require('log-talk');
 const logger = new LogTalk();
 logger.setMethod({ name: 'foo', color: 'yellow' });
-logger.foo('This log should be yellow.');
 ```
 
 These are defined colors.
