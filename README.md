@@ -1,6 +1,6 @@
 # log-talk
 
-Simple logger designed for browser and node.
+Simple logger designed for browser and terminal.
 
 - Line number where a bug occured (only for browser console now)
 - Timestamp when a bug occured

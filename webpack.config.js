@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
   entry: {
     dist: './src/index.js',
-    docs: './src/index.js',
+    docs: './docs/demo.js',
+    tests: './tests/test.js',
   },
   output: {
     path: __dirname,

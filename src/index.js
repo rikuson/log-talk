@@ -2,6 +2,14 @@ const dayjs = require("dayjs");
 const highlight = require("./highlight");
 
 class LogTalk {
+  static get ERR_INVALID_ARGUMENT() {
+    return "Invalid argument";
+  }
+
+  static get ERR_METHOD_NAME_RESERVED() {
+    return "Method name is reserved";
+  }
+
   static get LOGGING_METHODS() {
     return [
       {
@@ -59,18 +67,13 @@ class LogTalk {
 
   setMethod(method) {
     if (typeof method !== "object") {
-      throw new Error("Invalid method");
+      throw new Error(LogTalk.ERR_INVALID_ARGUMENT);
     }
     method = { ...this.__option, ...method };
     const { name, label, level, timeFormat, output, color } = method;
-    if (typeof name !== "string") {
-      throw new Error("Method name must be string");
-    }
     switch (name) {
       case "setMethod":
-        throw new Error("Method name is reserved");
-      case "":
-        throw new Error("Method name is empty");
+        throw new Error(LogTalk.ERR_METHOD_NAME_RESERVED);
     }
     if (typeof console === "undefined") return false;
     if (!this.__level || level < this.__level) return false;
