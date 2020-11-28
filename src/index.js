@@ -99,7 +99,10 @@ class LogTalk {
         throw new Error("Method name is empty");
     }
     if (typeof console === 'undefined') return false;
-    if (!this.__level || level < this.__level) return false;
+    if (!this.__level || level < this.__level) {
+      this[name] = () => {};
+      return false;
+    }
     const timestamp = dayjs().format(timeFormat);
     const args = this.highlight(timestamp, name, color);
     this[name] = output.bind(console, ...args);
