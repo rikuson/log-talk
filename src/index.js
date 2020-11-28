@@ -75,8 +75,11 @@ class LogTalk {
       case "setMethod":
         throw new Error(LogTalk.ERR_METHOD_NAME_RESERVED);
     }
-    if (typeof console === "undefined") return false;
-    if (!this.__level || level < this.__level) return false;
+    if (typeof console === 'undefined') return false;
+    if (!this.__level || level < this.__level) {
+      this[name] = () => {};
+      return false;
+    }
     const timestamp = dayjs().format(timeFormat);
     const args = highlight(timestamp, typeof label !== "undefined" ? label : name, color);
     this[name] = output.bind(console, ...args);
