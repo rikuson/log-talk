@@ -5,7 +5,6 @@ Simple logger designed for browser and terminal.
 - Line number where a bug occured (only for browser console now)
 - Timestamp when a bug occured
 - Highlight
-- Observe log message
 - Customizable
 
 ## Usage
@@ -28,12 +27,11 @@ logger.warn('This is warn');
 logger.error('This is error', new Error('There is something wrong'));
 
 // Define your own method
-logger.setMethod({ name: 'foo', color: 'yellow', timeFormat: '[[]YYYY-MM-DD HH:mm:ss]' });
+logger.setMethod({ name: 'foo', color: 'yellow', timeFormat: 'YYYY-MM-DD' });
 logger.foo('Foo');
 
 // Override default methods
-logger.setMethod({ name: 'info', color: 'red' });
-logger.info('Now the label is red');
+logger.setMethod({ name: 'info', label: '[INFO]', color: 'red' });
 ```
 
 You can see this demo [here](https://rikuson.github.io/log-talk/) on your browser.

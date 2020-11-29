@@ -14,4 +14,3 @@ logger.foo("Foo");
 
 // Override default methods
 logger.setMethod({ name: "info", label: "[INFO]", color: "red" });
-logger.info("The label is red now");
